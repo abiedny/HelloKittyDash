@@ -7,17 +7,16 @@ class Weather extends React.Component {
         this.state  ={
             error: null,
             isLoaded: false,
-            items: []
+            items: {}
         };
     }
 
     componentDidMount() {
-        fetch("api.openweathermap.org/data/2.5/weather?q=minneapolis&units=imperial&appid=67975210d69828dd5fa681b6216543d0")
+        fetch("http://api.openweathermap.org/data/2.5/weather?q=minneapolis&units=imperial&appid=67975210d69828dd5fa681b6216543d0")
         //fetch("https://jsonplaceholder.typicode.com/todos/1")
             .then(res => res.json())
             .then(
                 (result) => {
-                    console.log(result);
                     this.setState({
                         isLoaded: true,
                         items: result
@@ -45,7 +44,7 @@ class Weather extends React.Component {
             return(
                 //The real Weather block code
                 <div className="col-md-6">
-
+                    { items.main.temp }
                 </div>
             );
         }
