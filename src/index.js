@@ -1,3 +1,5 @@
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap-theme.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -70,16 +72,61 @@ class Weather extends React.Component {
                 //The real Weather block code
                 <div className="col-md-6">
                     <h1>{ items.name }</h1>
-                    <h2>{ items.weather[0].description }</h2>
+                    <h3>{ items.weather[0].description }</h3>
 
                     <img src={ this.getIcon( items.weather[0].icon ) } alt="Weather Icon"></img>
+                    <h3>{ items.main.temp }</h3>
+
+                    <h2>Details</h2>
+                    <p>Wind: { items.wind.speed }mph</p>
+                    <p>Humidity: { items.main.humidity }%</p>
                 </div>
             );
         }
     }
 }
 
+class XKCD extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state  ={
+            error: null,
+            isLoaded: false,
+            items: {}
+        };
+    }
+    componentDidMount() {
+        fetch("")
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    this.setState({
+                        isLoaded: true,
+                        items: result
+                    });
+                },
+                (error) => {
+                    this.setState({
+                        isLoaded: true,
+                        error
+                    });
+                }
+            )
+    }
+}
+
+class Dashboard extends React.Component {
+    render() {
+        return(
+            <div className="row">
+                <Weather/>
+                <XKCD/>
+            </div>
+        );
+    }
+}
+
 ReactDOM.render(
-    <Weather/>,
+    <Dashboard/>,
     document.getElementById("root")
 );
