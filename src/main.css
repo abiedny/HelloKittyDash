@@ -7,14 +7,18 @@
 #weather_icon {
     width: 100%;
     margin: 10px;
+    margin-right: 0px;
+    padding-right: 0px;
 }
 #wicon {
     width: 100%;
 }
 #temp > h3 {
-    font-size: 80px;
+    font-size: 60px;
     height: 100%;
-    margin-top: 40%;
+    margin-top: 55%;
+    margin-left: 0px;
+    padding-left: 0px;
 }
 h1 {
     font-size: 96px;
