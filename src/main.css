@@ -3,28 +3,24 @@
     background-color: hotpink;
     height: 100%;
     width: 100%;
+    padding-bottom: 5%;
 }
 #weather_icon {
-    width: 100%;
+    width: 40%;
     margin: 10px;
-    margin-right: 0px;
-    padding-right: 0px;
+    padding-left: 25px;
+    float: left;
 }
-#wicon {
-    width: 100%;
-}
-#temp > h3 {
+#temp {
     font-size: 60px;
-    height: 100%;
-    margin-top: 55%;
-    margin-left: 0px;
-    padding-left: 0px;
+    margin-top: 17.5%;
 }
 h1 {
-    font-size: 96px;
+    font-size: 120px;
 }
 h2 {
     font-size: 72px;
+    margin-left: 20%;
 }
 h3 {
     font-size: 42px;
@@ -33,4 +29,7 @@ h3 {
 p {
     font-size: 24px;
     margin: 10px;
+}
+#xkcd_title {
+    font-size: 90px;
 }

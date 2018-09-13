@@ -31,22 +31,25 @@ class Weather extends React.Component {
                 }
             )
     }
-    getIcon(description) {
+    getIcon(description, wind) {
         switch (description) {
             case "01d":
             case "01n":
             default:
-                return "Sunny.png";
+                if (wind < 20) return "Sunny.png";
+                else return "Windy.png";
             case "02d":
             case "02n":
             case "03d":
             case "03n":
-                return "PartlyCloudy.png";
+                if (wind < 20) return "PartlyCloudy.png";
+                else return "Windy.png";
             case "04d":
             case "04n":
             case "50d":
             case "50n":
-                return "Cloudy.png";
+                if (wind < 20) return "Cloudy.png";
+                else return "Windy.png";
             case "09d":
             case "09n":
             case "10d":
@@ -76,12 +79,8 @@ class Weather extends React.Component {
                     <h3>{ items.weather[0].description }</h3>
 
                     <div className="row" id="wicon">
-                        <div className="col-md-6" id="icon">
-                            <img src={ this.getIcon( items.weather[0].icon ) } alt="Weather Icon" id="weather_icon"></img>
-                        </div>
-                        <div className="col-md-6" id="temp">
-                            <h3>{ items.main.temp }° F</h3>
-                        </div>
+                        <img src={ this.getIcon( items.weather[0].icon, items.wind.speed ) } alt="Weather Icon" id="weather_icon"></img>
+                        <h3 id="temp">{ items.main.temp }° F</h3>
                     </div>
 
                     <h2>Details</h2>
@@ -132,8 +131,8 @@ class XKCD extends React.Component {
         else {
             return(
                 <div className="col-md-6">
-                    <h1>{ items.title }</h1>
-                    <img src={ items.img } alt="XKCD Comic" />
+                    <h1 id="xkcd_title">{ items.title }</h1>
+                    <img src={ items.img } alt="XKCD Comic" id="xkcd" />
                     <p>{ items.alt }</p>
                 </div>
             );
