@@ -1,0 +1,32 @@
+#root {
+    font-family: Comic Sans MS;
+    background-color: hotpink;
+    height: 100%;
+    width: 100%;
+}
+#weather_icon {
+    width: 100%;
+    margin: 10px;
+}
+#wicon {
+    width: 100%;
+}
+#temp > h3 {
+    font-size: 80px;
+    height: 100%;
+    margin-top: 40%;
+}
+h1 {
+    font-size: 96px;
+}
+h2 {
+    font-size: 72px;
+}
+h3 {
+    font-size: 42px;
+    margin: 10px;
+}
+p {
+    font-size: 24px;
+    margin: 10px;
+}

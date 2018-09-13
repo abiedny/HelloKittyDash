@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
+import './main.css'
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -74,8 +75,14 @@ class Weather extends React.Component {
                     <h1>{ items.name }</h1>
                     <h3>{ items.weather[0].description }</h3>
 
-                    <img src={ this.getIcon( items.weather[0].icon ) } alt="Weather Icon"></img>
-                    <h3>{ items.main.temp }</h3>
+                    <div className="row" id="wicon">
+                        <div className="col-md-6" id="icon">
+                            <img src={ this.getIcon( items.weather[0].icon ) } alt="Weather Icon" id="weather_icon"></img>
+                        </div>
+                        <div className="col-md-6" id="temp">
+                            <h3>{ items.main.temp }° F</h3>
+                        </div>
+                    </div>
 
                     <h2>Details</h2>
                     <p>Wind: { items.wind.speed }mph</p>
@@ -96,7 +103,7 @@ class XKCD extends React.Component {
         };
     }
     componentDidMount() {
-        fetch("")
+        fetch("https://xkcd.now.sh")
             .then(res => res.json())
             .then(
                 (result) => {
@@ -112,6 +119,17 @@ class XKCD extends React.Component {
                     });
                 }
             )
+    }
+    render() {
+        const { error, isLoaded, items } = this.state;
+
+        return(
+            <div className="col-md-6">
+                <h1>{ items.title }</h1>
+                <img src={ items.img } alt="XKCD Comic" />
+                <p>{ items.alt }</p>
+            </div>
+        );
     }
 }
 
