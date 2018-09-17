@@ -74,7 +74,7 @@ class Weather extends React.Component {
         else {
             return(
                 //The real Weather block code
-                <div className="col-md-6">
+                <div className="col-md-6" id="weather_box">
                     <h1>{ items.name }</h1>
                     <h3>{ items.weather[0].description }</h3>
 
@@ -130,7 +130,7 @@ class XKCD extends React.Component {
         }
         else {
             return(
-                <div className="col-md-6">
+                <div className="col-md-6" id="xkcd_box">
                     <h1 id="xkcd_title">{ items.title }</h1>
                     <img src={ items.img } alt="XKCD Comic" id="xkcd" />
                     <p>{ items.alt }</p>

@@ -1,9 +1,13 @@
 #root {
     font-family: Comic Sans MS;
+    height: 90%;
+    width: 90%;
+    margin: 4% auto;
+    border: 5px double black;
     background-color: hotpink;
-    height: 100%;
-    width: 100%;
-    padding-bottom: 5%;
+}
+body {
+    background-color: hotpink;
 }
 #weather_icon {
     width: 40%;
@@ -32,4 +36,7 @@ p {
 }
 #xkcd_title {
     font-size: 90px;
+}
+.col-md-6 {
+    padding: 5px 20px;
 }
