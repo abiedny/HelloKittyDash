@@ -14,7 +14,7 @@ class Weather extends React.Component {
         };
     }
     componentDidMount() {
-        fetch("http://api.openweathermap.org/data/2.5/weather?q=minneapolis&units=imperial&appid=67975210d69828dd5fa681b6216543d0")
+        fetch("https://api.openweathermap.org/data/2.5/weather?q=minneapolis&units=imperial&appid=67975210d69828dd5fa681b6216543d0")
             .then(res => res.json())
             .then(
                 (result) => {
