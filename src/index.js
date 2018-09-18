@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
-import './main.css'
+import './main.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -13,7 +13,7 @@ class Weather extends React.Component {
             items: {}
         };
     }
-    componentDidMount() {
+    getWeather() {
         fetch("https://api.openweathermap.org/data/2.5/weather?q=minneapolis&units=imperial&appid=67975210d69828dd5fa681b6216543d0")
             .then(res => res.json())
             .then(
@@ -30,6 +30,16 @@ class Weather extends React.Component {
                     });
                 }
             )
+    }
+    componentDidMount() {
+        this.timerID = setInterval(
+            () => this.getWeather(),
+            600000
+          );
+        this.getWeather();
+    }
+    componentWillUnmount() {
+        clearInterval(this.timerID);
     }
     getIcon(description, wind) {
         switch (description) {
@@ -101,7 +111,7 @@ class XKCD extends React.Component {
             items: {}
         };
     }
-    componentDidMount() {
+    getComic() {
         fetch("https://xkcd.now.sh")
             .then(res => res.json())
             .then(
@@ -118,6 +128,16 @@ class XKCD extends React.Component {
                     });
                 }
             )
+    }
+    componentDidMount() {
+        this.timerID = setInterval(
+            () => this.getComic(),
+            3600000
+          );
+          this.getComic();
+    }
+    componentWillUnmount() {
+        clearInterval(this.timerID);
     }
     render() {
         const { error, isLoaded, items } = this.state;
